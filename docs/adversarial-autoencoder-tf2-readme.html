@@ -1,0 +1,87 @@
+<h1 id="adversarial-autoencoder-tf2">Adversarial autoencoder TF2</h1>
+<p>A Tensorflow 2.0 implementation of <strong><a href="https://arxiv.org/abs/1511.05644/">Adversarial Autoencoder</a></strong> (ICLR 2016)</p>
+<p><br></p>
+<h2 id="model">Model</h2>
+<table>
+<thead>
+<tr>
+<th>Architecture</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><img src="imgs/aae-fig3.png" width="600px" style="max-width:100%"></td>
+<td>Regularization of the hidden code by incorporationg full label information (Fig.3 from the paper).<br/> <sub><em>Alireza Makhzani, Jonathon Shlens, Navdeep Jaitly, and Ian J. Goodfellow. 2015. Adversarial Autoencoders. CoRRabs/1511.05644 (2015). Figure 3 from the paper.</em></sub></td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<h2 id="results-for-gaussian_mixture-prior">Results for <code>gaussian_mixture</code> prior</h2>
+<h3 id="latent-space">Latent space</h3>
+<table>
+<thead>
+<tr>
+<th>Target prior distribution</th>
+<th>Learnt latent space</th>
+<th>Sampled decoder ouput</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><img src="imgs/gaussian_mixture_target_prior.png" width="300px" style="max-width:100%"></td>
+<td><img src="imgs/learnt_manifold_example.png" width="300px" style="max-width:100%"></td>
+<td><img src="imgs/sampled_decoder_output.png" width="200px" style="max-width:100%"></td>
+</tr>
+</tbody>
+</table>
+<h3 id="reconstruction">Reconstruction</h3>
+<table>
+<thead>
+<tr>
+<th>Input images</th>
+<th>Reconstructed images </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><img src="imgs/input_images.png" width="200px" style="max-width:100%"></td>
+<td><img src="imgs/reconstruction_example.png" width="200px" style="max-width:100%"></td>
+</tr>
+</tbody>
+</table>
+<h3 id="training-loss">Training loss</h3>
+<table>
+<thead>
+<tr>
+<th>Gan</th>
+<th>Encoder</th>
+<th>Discriminator</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><img src="imgs/gan_loss.png" width="300px" style="max-width:100%"></td>
+<td><img src="imgs/encoder_loss.png" width="300px" style="max-width:100%"></td>
+<td><img src="imgs/discriminator_loss.png" width="300px" style="max-width:100%"> </td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<h2 id="example-of-usage">Example of usage</h2>
+<pre><code>python train_model<span class="hljs-selector-class">.py</span> --prior_type gaussian_mixture
+</code></pre><h3 id="attributes">Attributes</h3>
+<ul>
+<li><code>--prior_type</code>: Type of target prior distribution. Default: <code>gaussian_mixture</code>. Required.</li>
+<li><code>--results_dir</code>: Training visualization directory. Default: <code>results</code>. Created if non-existent.</li>
+<li><code>--log_dir</code>: Log directory (Tensorboard). Default: <code>logs</code>. Created if non-existent.</li>
+<li><code>--gm_x_stddev</code>: Gaussian mixture prior: standard deviation for the x coord. Default: <code>0.5</code></li>
+<li><code>--gm_y_stddev</code>: Gaussian mixture prior: standard deviation for the y coord. Default: <code>0.1</code></li>
+<li><code>--n_epochs</code>: Number of epochs. Default: <code>20</code></li>
+<li><code>--learning_rate</code>: Learning rate. Default: <code>0.001</code></li>
+<li><code>--batch_size</code>: Batch size. Default: <code>128</code></li>
+<li><code>--num_classes</code>: Number of classes (for further use). Default: <code>10</code></li>
+</ul>
+<h2 id="visualization-of-outliers">Visualization of outliers</h2>
+<p>Visualization of outliers from learnt distribution in the latent space
+<img src="imgs/outliers-all.png" width="1200px" style="max-width:100%"> </p>
