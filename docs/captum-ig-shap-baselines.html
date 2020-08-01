@@ -9,8 +9,8 @@
 <p>This notebook contains an example of two feature attribution methods applied to a PyTorch model predicting fuel efficiency for the <a href="http://archive.ics.uci.edu/ml/machine-learning-databases/auto-mpg/auto-mpg.data">Auto MPG Data Set</a>. </p>
 <p>We will use the following methods:</p>
 <ul>
-<li><a href="https://captum.ai/api/integrated_gradients.html">Integrated Gradients from the Captum package</a></li>
-<li>custom toy implementation of the <a href="https://en.wikipedia.org/wiki/Shapley_value">SHAP algorithm (Shapley values)</a></li>
+<li><a href="https://captum.ai/api/integrated_gradients.html" target="_blank">Integrated Gradients from the Captum package</a></li>
+<li>custom toy implementation of the <a href="https://en.wikipedia.org/wiki/Shapley_value" target="_blank">SHAP algorithm (Shapley values)</a></li>
 </ul>
 <p>Attribution methods are applied per sample. As a result, each  feature is assigned a value reflecting its contribution to the model&#39;s output or, more precisely, to the difference between the model&#39;s output for the sample and the <em>expected value</em>. </p>
 <p>Both methods used in this notebook require setting a baseline, i.e.: a vector of values that will be used, for each feature, in place of a missing value. The baseline vector serves as a set of reference values that can be thought of as <em>neutral</em> and that are used to represent a missing value whenever a method requires it. We will calculate the <em>expected value</em> as model&#39;s output for a selected baseline. </p>
