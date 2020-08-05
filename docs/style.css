@@ -1,3 +1,6 @@
 a, a:visited{
+    color: blue;
+}
+a:visited{
     color: inherit;
 }
