@@ -15,7 +15,7 @@
 <li>After fine-tuning, the <a href="https://captum.ai/api/integrated_gradients.html" target="_blank">Integrated Gradients</a> interpretability algorithm will assign importance scores to
 input tokens. We will use a <strong>PyTorch</strong> implementation from the <a href="https://captum.ai/" target="_blank">Captum</a> library. <ul>
 <li>The algorithm requires providing a reference sample (a baseline) since importance attribution is performed based on the model&#39;s output, as inputs change from reference values to the actual sample. </li>
-<li>The Integrated Gradients method satisfies the <a href="http://theory.stanford.edu/~ataly/Talks/sri_attribution_talk_jun_2017.pdf" target="_blank">completeness</a> property. We will look at the sum of attributions for a sample and show that the sum approximates (explains) prediction&#39;s shift from the baseline value. </li>
+<li>The Integrated Gradients method satisfies the <strong>completeness</strong> property. We will look at the sum of attributions for a sample and show that the sum approximates (explains) prediction&#39;s shift from the baseline value. </li>
 </ul>
 </li>
 <li>The final sections of this notebook contain a colour-coded <strong>visualization</strong> of attribution results made with <em>captum.attr.visualization</em> library.</li>
